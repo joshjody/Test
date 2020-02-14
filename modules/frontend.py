@@ -26,5 +26,10 @@ class index:
     def __init__(self):
         pass
     def index(self):
-        fn = render_template("index.html",)
+        url = 'http://127.0.0.1:5000/v1/book/show'
+        y = requests.get(url)
+        data = y.json()
+        a1= data['buku']
+        print(a1)
+        fn = render_template("index.html",a1=a1)
         return fn
