@@ -55,6 +55,30 @@ class addproc:
         fn = redirect('/')
         return fn
 
+class update:
+    def __init__(self):
+        pass
+    def update(self, params):
+        idnya   = params
+        url     = 'http://127.0.0.1:5000/v1/book/detailbook'
+        scr     = {"id": idnya}
+        z       = requests.get(url, json=scr)
+        data    = z.json()
+        datanya = data['hasil']
+        fn = render_template('update.html',datanya=datanya)
+        return fn
+    def update_proc(self, params):
+        id          =   params
+        bookname    =   request.values.get('bookname')
+        booktype    =   request.values.get('booktype')
+        pages       =   request.values.get('pages')
+        datep       =   request.values.get('datep')
+        author      =   request.values.get('author')
+        res = requests.put('http://127.0.0.1:5000/v1/book/update', json={"id":id,"title":bookname,"author":author,"date_published":datep,"pages":pages,"type":booktype})
+        fn = redirect('/')
+        return fn
+
+
 class delete:
     def __init__(self):
         pass

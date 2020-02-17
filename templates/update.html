@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>tambah - Bambank Store Book</title>
-    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <title>edit - Bambank Store Book</title>
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/assets/fonts/fontawesome-all.min.css">
 </head>
 
 <body id="page-top">
@@ -31,30 +31,31 @@
                 <div class="container-fluid">
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Add Book</p>
+                            <p class="text-primary m-0 font-weight-bold">Edit Book</p>
                         </div>
                         <div class="card-body">
-                            <form class="upload-form" action="/tambah_proc" method="post">
+                          {% for z in datanya %}
+                            <form class="upload-form" action="/update_proc/{{z['id']}}" method="post">
 
                               <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="form32">book name</label>
-                                <input type="text" id="form34" class="form-control validate" name="bookname" placeholder="" required>
+                                <input type="text" id="form34" class="form-control validate" name="bookname" value="{{z['title']}}" required>
                               </div>
                               <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="form32">book type</label>
-                                <input type="text" id="form34" class="form-control validate" name="booktype" placeholder="" required>
+                                <input type="text" id="form34" class="form-control validate" name="booktype" value="{{z['type']}}" required>
                               </div>
                               <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="form32">pages</label>
-                                <input type="number" id="form34" class="form-control validate" name="pages" placeholder="" required>
+                                <input type="number" id="form34" class="form-control validate" name="pages" value="{{z['pages']}}" required>
                               </div>
                               <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="form32">date published</label>
-                                <input type="date" id="form34" class="form-control validate" name="datep" placeholder="" required>
+                                <input type="date" id="form34" class="form-control validate" name="datep" value="{{z['date_published']}}" required>
                               </div>
                               <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="form32">author name</label>
-                                <input type="text" id="form34" class="form-control validate" name="author" placeholder="" required>
+                                <input type="text" id="form34" class="form-control validate" name="author" value="{{z['author']}}" required>
                               </div>
 
                               <div class=" d-flex justify-content-center">
@@ -62,6 +63,7 @@
                               </div>
 
                             </form>
+                          {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -72,10 +74,10 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="static/assets/js/jquery.min.js"></script>
-    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="static/assets/js/theme.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
 </body>
 
 </html>

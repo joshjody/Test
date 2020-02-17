@@ -68,8 +68,56 @@ class add:
         except:
             message = 'failed'
             fn = jsonify({'status': message})
-
         return fn
+
+class update:
+    def __init__(self):
+        pass
+    def update(data):
+        try:
+            mydb = mysql_con.connect()
+            mycursor = mydb.cursor()
+            data = request.get_json()
+            sql = "UPDATE `bukudetail` SET `title` = '"+data['title']+"',`author` = '"+data['author']+"',`date_published` = '"+data['date_published']+"',`pages` = '"+data['pages']+"',`type` = '"+data['type']+"' WHERE `bukudetail`.`id` = '"+data['id']+"';"
+            mycursor.execute(sql)
+            mydb.commit()
+            message = 'success'
+            fn = jsonify({'status': message})
+        except:
+            message = 'failed'
+            fn = jsonify({'status': message})
+        return fn
+
+class detailbook:
+    def __init__(self):
+        pass
+    def detailbook(data):
+        try:
+            fx = []
+            mydb = mysql_con.connect()
+            mycursor = mydb.cursor()
+            data = request.get_json()
+            sql = "SELECT * FROM bukudetail WHERE id="+data['id']
+            mycursor.execute(sql)
+            myresult = mycursor.fetchall()
+
+            for camp in myresult:
+                dict_lat_cam_row = {
+                    'id': camp[0],
+                    'title': camp[1],
+                    'author': camp[2],
+                    'date_published': str(camp[3]),
+                    'pages': camp[4],
+                    'type': camp[5]
+                }
+
+            fx.append(dict_lat_cam_row)
+            fn = jsonify({'hasil':fx})
+        except:
+            message = 'failed'
+            fn = jsonify({'status': message})
+        return fn
+
 
 class delete:
     def __init__(self):

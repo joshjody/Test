@@ -31,13 +31,17 @@ def page_not_found(e):
 def show():
     pro = backend.index().index()
     return pro
+@app.route('/v1/book/detailbook', methods=['GET'])
+def detailbook():
+    pro = backend.detailbook().detailbook()
+    return pro
 @app.route('/v1/book/add', methods=['POST'])
 def add():
     pro = backend.add().add()
     return pro
-@app.route('/v1/book/update', methods=['GET','POST'])
+@app.route('/v1/book/update', methods=['PUT'])
 def update():
-    pro = backend.index().index()
+    pro = backend.update().update()
     return pro
 @app.route('/v1/book/delete', methods=['GET','POST','DELETE'])
 def delete():
@@ -54,14 +58,25 @@ def index():
 def addfront():
     pro = frontend.add().add()
     return pro
-@app.route('/tambah_proc', methods=['GET','POST'])
-def tambah_procfront():
-    pro = frontend.addproc().addproc()
+@app.route('/tambah_proc/<id>', methods=['GET','POST'])
+def tambah_procfront(id):
+    idnya   = id
+    pro     = frontend.addproc().addproc(idnya)
     return pro
 @app.route('/delete/<id>', methods=['GET','POST'])
 def delete_procfront(id):
     params = {"id" : id}
     pro = frontend.delete().delete(params)
+    return pro
+@app.route('/update/<id>', methods=['GET','POST'])
+def updatefront(id):
+    params = id
+    pro = frontend.update().update(params)
+    return pro
+@app.route('/update_proc/<id>', methods=['GET','POST'])
+def update_proc_front(id):
+    params = id
+    pro = frontend.update().update_proc(params)
     return pro
 #########################################################
 #########################################################
