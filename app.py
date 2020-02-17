@@ -58,10 +58,9 @@ def index():
 def addfront():
     pro = frontend.add().add()
     return pro
-@app.route('/tambah_proc/<id>', methods=['GET','POST'])
-def tambah_procfront(id):
-    idnya   = id
-    pro     = frontend.addproc().addproc(idnya)
+@app.route('/tambah_proc', methods=['GET','POST'])
+def tambah_procfront():
+    pro     = frontend.addproc().addproc()
     return pro
 @app.route('/delete/<id>', methods=['GET','POST'])
 def delete_procfront(id):

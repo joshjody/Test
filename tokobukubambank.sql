@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 13 Feb 2020 pada 20.40
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.2
+-- Host: localhost
+-- Generation Time: Feb 17, 2020 at 01:59 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.0.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bukudetail`
+-- Table structure for table `bukudetail`
 --
 
 CREATE TABLE `bukudetail` (
@@ -38,33 +38,33 @@ CREATE TABLE `bukudetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `bukudetail`
+-- Dumping data for table `bukudetail`
 --
 
 INSERT INTO `bukudetail` (`id`, `title`, `author`, `date_published`, `pages`, `type`) VALUES
-(1, 'Death Note', 'Ryuk', '2000-02-04', 300, 'Cursed'),
-(2, 'Life note', 'Shiryu', '2000-02-04', 300, 'blessed'),
-(3, 'Kiss Note', 'Guri', '2000-02-04', 300, 'Unknown');
+(3, 'Kiss Note', 'Guri', '2000-02-04', 300, 'Unknown'),
+(4, 'udin books', 'udin', '2002-02-03', 30, 'diary book'),
+(8, 'Death Note', 'Ryuk', '2002-01-01', 300, 'Cursed');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `bukudetail`
+-- Indexes for table `bukudetail`
 --
 ALTER TABLE `bukudetail`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `bukudetail`
+-- AUTO_INCREMENT for table `bukudetail`
 --
 ALTER TABLE `bukudetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
