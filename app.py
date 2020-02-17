@@ -50,7 +50,19 @@ def delete(id):
 def index():
     pro = frontend.index().index()
     return pro
-
+@app.route('/addbook', methods=['GET','POST'])
+def addfront():
+    pro = frontend.add().add()
+    return pro
+@app.route('/tambah_proc', methods=['GET','POST'])
+def tambah_procfront():
+    # bookname    =   request.values.get('bookname')
+    # booktype    =   request.values.get('booktype')
+    # pages       =   request.values.get('pages')
+    # datep       =   request.values.get('datep')
+    # author      =   request.values.get('author')
+    pro         =   frontend.addproc().addproc()
+    return pro
 #########################################################
 #########################################################
 ####################### debug on terminal ###############

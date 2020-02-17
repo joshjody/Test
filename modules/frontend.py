@@ -30,6 +30,26 @@ class index:
         y = requests.get(url)
         data = y.json()
         a1= data['buku']
-        print(a1)
         fn = render_template("index.html",a1=a1)
+        return fn
+
+
+class add:
+    def __init__(self):
+        pass
+    def add(self):
+        fn = render_template("tambah.html")
+        return fn
+
+class addproc:
+    def __init__(self):
+        pass
+    def addproc(self):
+        bookname    =   request.values.get('bookname')
+        booktype    =   request.values.get('booktype')
+        pages       =   request.values.get('pages')
+        datep       =   request.values.get('datep')
+        author      =   request.values.get('author')
+        
+        fn = redirect('/')
         return fn

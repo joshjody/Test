@@ -64,12 +64,14 @@ class add:
             # print('asdasdasd')
             # mycursor.execute(sql, val)
             # mydb.commit()
-
-            mydb = mysql_con2.connect(usernamedb, passworddb)
+            print("--------------1")
+            mydb = mysql_con.connect()
+            print("--------------2")
             mycursor = mydb.cursor()
-
+            print("--------------3")
             sql = "INSERT INTO bukudetail (title, author, date_published, pages, type) VALUES (%s, %s, %s, %s, %s)"
-            val = (data['title'], data['author'], data['author'], data['date_published'], data['pages'], data['type'])
+            print("--------------4")
+            val = (data['title'], data['author'], data['date_published'], data['pages'], data['type'])
             mycursor.execute(sql, val)
             mydb.commit()
             message = 'success'

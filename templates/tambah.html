@@ -20,8 +20,8 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                  <li class="nav-item" role="presentation"><a class="nav-link active" href="/"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="/addbook"><i class="fas fa-table"></i><span>Tambah Data</span></a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="/"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link active" href="/addbook"><i class="fas fa-table"></i><span>Tambah Data</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -31,38 +31,37 @@
                 <div class="container-fluid">
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Book Info</p>
+                            <p class="text-primary m-0 font-weight-bold">Add Book</p>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table dataTable my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>title</th>
-                                            <th>type</th>
-                                            <th>pages</th>
-                                            <th>date_published</th>
-                                            <th>author</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                      {% for z in a1 %}
-                                        <tr>
-                                            <td>{{z['id']}}</td>
-                                            <td>{{z['title']}}</td>
-                                            <td>{{z['type']}}</td>
-                                            <td>{{z['pages']}}</td>
-                                            <td>{{z['date_published']}}</td>
-                                            <td>{{z['author']}}</td>
-                                        </tr>
-                                      {% endfor %}
-                                    </tbody>
-                                    <tfoot>
-                                        <tr></tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                            <form class="upload-form" action="/tambah_proc" method="post">
+
+                              <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="form32">book name</label>
+                                <input type="text" id="form34" class="form-control validate" name="bookname" placeholder="" required>
+                              </div>
+                              <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="form32">book type</label>
+                                <input type="text" id="form34" class="form-control validate" name="booktype" placeholder="" required>
+                              </div>
+                              <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="form32">pages</label>
+                                <input type="number" id="form34" class="form-control validate" name="pages" placeholder="" required>
+                              </div>
+                              <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="form32">date published</label>
+                                <input type="date" id="form34" class="form-control validate" name="datep" placeholder="" required>
+                              </div>
+                              <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="form32">author name</label>
+                                <input type="text" id="form34" class="form-control validate" name="author" placeholder="" required>
+                              </div>
+
+                              <div class=" d-flex justify-content-center">
+                                <button type="submit" value="submit" class="btn btn-success">Send</button>
+                              </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
