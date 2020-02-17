@@ -39,9 +39,9 @@ def add():
 def update():
     pro = backend.index().index()
     return pro
-@app.route('/v1/book/delete/<id>', methods=['GET','POST'])
-def delete(id):
-    pro = backend.index().index(id)
+@app.route('/v1/book/delete', methods=['GET','POST','DELETE'])
+def delete():
+    pro = backend.delete().delete()
     return pro
 #########################################################
 #########################################################
@@ -56,12 +56,12 @@ def addfront():
     return pro
 @app.route('/tambah_proc', methods=['GET','POST'])
 def tambah_procfront():
-    # bookname    =   request.values.get('bookname')
-    # booktype    =   request.values.get('booktype')
-    # pages       =   request.values.get('pages')
-    # datep       =   request.values.get('datep')
-    # author      =   request.values.get('author')
-    pro         =   frontend.addproc().addproc()
+    pro = frontend.addproc().addproc()
+    return pro
+@app.route('/delete/<id>', methods=['GET','POST'])
+def delete_procfront(id):
+    params = {"id" : id}
+    pro = frontend.delete().delete(params)
     return pro
 #########################################################
 #########################################################

@@ -55,24 +55,33 @@ class add:
     def __init__(self):
         pass
     def add(data):
-        # mydb = mysql_con.connect()
-        # mycursor = mydb.cursor()
         try:
-            # sql = "INSERT INTO bukudetail (title, author, date_published, pages, type) VALUES (%s, %s, %s, %s, %s)"
-            # # val = (request['title'], request['author'], request['date_published'], request['pages'], request['type'])
-            # val = (data['title'], data['author'], data['date_published'], data['pages'], data['type'])
-            # print('asdasdasd')
-            # mycursor.execute(sql, val)
-            # mydb.commit()
-            print("--------------1")
             mydb = mysql_con.connect()
-            print("--------------2")
             mycursor = mydb.cursor()
-            print("--------------3")
+            data = request.get_json()
             sql = "INSERT INTO bukudetail (title, author, date_published, pages, type) VALUES (%s, %s, %s, %s, %s)"
-            print("--------------4")
             val = (data['title'], data['author'], data['date_published'], data['pages'], data['type'])
             mycursor.execute(sql, val)
+            mydb.commit()
+            message = 'success'
+            fn = jsonify({'status': message})
+        except:
+            message = 'failed'
+            fn = jsonify({'status': message})
+
+        return fn
+
+class delete:
+    def __init__(self):
+        pass
+    def delete(data):
+        try:
+            mydb = mysql_con.connect()
+            mycursor = mydb.cursor()
+            data = request.get_json()
+            d = data['id']
+            sql = "DELETE FROM bukudetail where id="+ d
+            mycursor.execute(sql)
             mydb.commit()
             message = 'success'
             fn = jsonify({'status': message})
